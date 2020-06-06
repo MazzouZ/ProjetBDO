@@ -22,25 +22,25 @@ private AuteurRepository auteurRepository;
 @PostMapping("/save")
 public void save(@RequestBody Auteur auteur){
 
-	AuteurRepository.save(auteur);
+	auteurRepository.save(auteur);
 }
 
 @DeleteMapping("/delete/{id}")
 public void delete(@PathVariable (required = true) String id){
 
-	AuteurRepository.deleteById(Integer.parseInt(id));
+	auteurRepository.deleteById(id);
 
 }
 
 @GetMapping("/all")
 public List<Auteur>findAll(){
 
-	return AuteurRepository.findAll();
+	return auteurRepository.findAll();
 }
 
 @GetMapping(value = "/count")
 public long countAuteur() {
 
-	return AuteurRepository.count();
+	return auteurRepository.count();
 }
 }

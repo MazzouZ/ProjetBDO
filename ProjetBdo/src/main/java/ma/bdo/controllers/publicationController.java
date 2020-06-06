@@ -17,30 +17,30 @@ import ma.bdo.repo.PublicationRepository;
 public class publicationController {
 	
 @Autowired
-private PublicationRepository PublicationRepository;
+private PublicationRepository publicationRepository;
 
 @PostMapping("/save")
 public void save(@RequestBody Publication Publication){
 
-	PublicationRepository.save(Publication);
+	publicationRepository.save(Publication);
 }
 
 @DeleteMapping("/delete/{id}")
 public void delete(@PathVariable (required = true) String id){
 
-	PublicationRepository.deleteById(Integer.parseInt(id));
+	publicationRepository.deleteById(id);
 
 }
 
 @GetMapping("/all")
 public List<Publication>findAll(){
 
-	return PublicationRepository.findAll();
+	return publicationRepository.findAll();
 }
 
 @GetMapping(value = "/count")
 public long countPublication() {
 
-	return PublicationRepository.count();
+	return publicationRepository.count();
 }
 }

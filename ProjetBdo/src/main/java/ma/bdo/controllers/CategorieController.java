@@ -17,30 +17,30 @@ import ma.bdo.repo.CategorieRepository;
 public class CategorieController {
 	
 @Autowired
-private CategorieRepository CategorieRepository;
+private CategorieRepository categorieRepository;
 
 @PostMapping("/save")
 public void save(@RequestBody Categorie Categorie){
 
-	CategorieRepository.save(Categorie);
+	categorieRepository.save(Categorie);
 }
 
 @DeleteMapping("/delete/{id}")
 public void delete(@PathVariable (required = true) String id){
 
-	CategorieRepository.deleteById(Integer.parseInt(id));
+	categorieRepository.deleteById(id);
 
 }
 
 @GetMapping("/all")
 public List<Categorie>findAll(){
 
-	return CategorieRepository.findAll();
+	return categorieRepository.findAll();
 }
 
 @GetMapping(value = "/count")
 public long countCategorie() {
 
-	return CategorieRepository.count();
+	return categorieRepository.count();
 }
 }
